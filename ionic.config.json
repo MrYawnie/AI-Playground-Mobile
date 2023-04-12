@@ -1,0 +1,7 @@
+{
+  "name": "OpenAI-playground",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
