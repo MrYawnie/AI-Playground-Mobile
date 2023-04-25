@@ -11,7 +11,7 @@ import com.getcapacitor.BridgeActivity;
 import com.getcapacitor.Plugin;
 
 public class MainActivity extends BridgeActivity {
-    @Override
+    /* @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -23,5 +23,5 @@ public class MainActivity extends BridgeActivity {
         WebView webView = this.getBridge().getWebView();
         WebSettings settings = webView.getSettings();
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
-    }
+    } */
 }

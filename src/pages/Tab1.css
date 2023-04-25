@@ -1,0 +1,31 @@
+/* ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: calc(100% - 65px);
+    top: 65px;
+  }
+  
+  ion-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: auto;
+    height: calc(100% - 65px);
+  }
+
+  ion-input {
+    height: auto;
+  }
+  
+  ion-footer {
+    position: fixed;
+    bottom: 65px;
+    width: 100%;
+    z-index: 2;
+  }
+
+  ion-tabs {
+    bottom: 65px;
+  } */
+  
