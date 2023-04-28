@@ -14,7 +14,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { chatbubbles, colorPalette, ellipse, images, square, triangle } from 'ionicons/icons';
 import LoginPage from './pages/Login';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -66,15 +66,15 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
+            <IonIcon aria-hidden="true" icon={chatbubbles} />
             <IonLabel>ChatGPT</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
+            <IonIcon aria-hidden="true" icon={colorPalette} />
             <IonLabel>Dall-E 2.0</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
+            <IonIcon aria-hidden="true" icon={images} />
             <IonLabel>Gallery</IonLabel>
           </IonTabButton>
         </IonTabBar>

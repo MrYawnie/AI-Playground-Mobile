@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonLabel, IonItem, IonInput, IonImg } from '@ionic/react';
+import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle, IonButton, IonLabel, IonItem, IonInput, IonImg, IonIcon } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { preview } from '../assets';
 import { getRandomPrompt } from '../utils';
 import { server } from '../constant';
 import { auth } from '../firebase';
+import { logOutOutline, refreshOutline } from 'ionicons/icons';
 
 const logout = () => {
   auth.signOut();
+};
+
+const refreshPage = () => {
+  window.location.reload();
 };
 
 const CreatePost = () => {
@@ -84,9 +89,12 @@ const CreatePost = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButton slot="start" size='small' onClick={logout}>
+            <IonIcon icon={logOutOutline} />
+          </IonButton>
           <IonTitle>Create Art with Dall-E</IonTitle>
-          <IonButton slot="end" size='small' onClick={logout}>
-            Logout
+          <IonButton slot="end" size="small" onClick={refreshPage}>
+            <IonIcon icon={refreshOutline} />
           </IonButton>
         </IonToolbar>
       </IonHeader>

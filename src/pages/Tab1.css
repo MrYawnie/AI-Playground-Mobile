@@ -28,4 +28,18 @@
   ion-tabs {
     bottom: 65px;
   } */
-  
+
+  ion-card {
+    width: 90%;
+    margin: 5px auto;
+  }
+
+  .bot-message {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .user-message {
+    margin-left: auto;
+    margin-right: 0;
+  }

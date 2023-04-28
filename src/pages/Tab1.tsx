@@ -1,8 +1,11 @@
 import {
   IonButton,
+  IonCard,
+  IonCardContent,
   IonContent,
   IonFooter,
   IonHeader,
+  IonIcon,
   IonInput,
   IonItem,
   IonLabel,
@@ -16,10 +19,10 @@ import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { server } from "../constant";
 import { auth } from "../firebase";
+import { logOutOutline, refreshOutline } from "ionicons/icons";
 auth.onAuthStateChanged((user) => {
   if (user) {
     console.log("user is signed in with email: " + user.email + " and username: " + user.displayName);
-    // sign out
   } else {
     console.log("user is not signed in");
   }
@@ -29,12 +32,16 @@ const logout = () => {
   auth.signOut();
 };
 
+const refreshPage = () => {
+  window.location.reload();
+};
+
 type MessageProps = {
   role: string;
   content: string;
 };
 
-const Message = ({ role, content }: MessageProps) => {
+/* const Message = ({ role, content }: MessageProps) => {
   const isBot = role === "assistant";
   return (
     <IonItem color={isBot ? "dark" : "light"}>
@@ -42,6 +49,18 @@ const Message = ({ role, content }: MessageProps) => {
         <ReactMarkdown>{content}</ReactMarkdown>
       </IonLabel>
     </IonItem>
+  );
+}; */
+
+const Message = ({ role, content }: MessageProps) => {
+  const isBot = role === "assistant";
+  const cardClass = isBot ? "bot-message" : "user-message";
+  return (
+    <IonCard className={cardClass} color={isBot ? "success" : "primary"}>
+      <IonCardContent style={{ wordWrap: "break-word", whiteSpace: "pre-wrap" }}>
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </IonCardContent>
+    </IonCard>
   );
 };
 
@@ -107,10 +126,13 @@ const Tab1: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButton slot="start" size="small" onClick={logout}>
+            <IonIcon icon={logOutOutline} />
+          </IonButton>
           <IonTitle>ChatGPT</IonTitle>
-          <IonButton slot="end" size="small" onClick={logout}>
-        Logout
-      </IonButton>
+          <IonButton slot="end" size="small" onClick={refreshPage}>
+            <IonIcon icon={refreshOutline} />
+          </IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent>
